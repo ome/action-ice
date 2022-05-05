@@ -1,0 +1,35 @@
+name: 'Ice install'
+description: 'Install Ice 3.6 on ubuntu 20.04'
+
+inputs:
+  java-version:
+    description: 'Version of Java to use'
+    default: 11
+
+
+runs:
+  using: "composite"
+  steps:
+    - name: Set up JDK ${{ inputs.java-version }}
+      uses: actions/setup-java@v1
+      with:
+        java-version: ${{ inputs.java-version }}
+    - name: Install slice2java
+      run: |
+        sudo apt-get install -y libmcpp-dev
+        wget -q https://github.com/ome/zeroc-ice-ubuntu2004/releases/download/0.2.0/ice-3.6.5-0.2.0-ubuntu2004-amd64.tar.gz
+        tar xf ice-3.6.5-0.2.0-ubuntu2004-amd64.tar.gz
+        mv ice-3.6.5-0.2.0 ice-3.6.5
+        mv ice-3.6.5 /opt
+        rm ice-3.6.5-0.2.0-ubuntu2004-amd64.tar.gz
+        echo "/opt/ice-3.6.5/bin" >> $GITHUB_PATH
+      shell: bash
+    - name: Install Python 3.8
+      uses: actions/setup-python@v2
+      with:
+        python-version: 3.8
+    - name: Install Ice Python binding
+      shell: bash
+      run: |
+        pip install https://github.com/ome/zeroc-ice-ubuntu2004/releases/download/0.2.0/zeroc_ice-3.6.5-cp38-cp38-linux_x86_64.whl
+      
