@@ -9,7 +9,7 @@ that will install on Ubuntu 20.04:
 
  The Java version can be passed as a parameter
 
- To use the action if a workflow:
+ To use the action in a workflow:
 
  ```
 on: [push]
