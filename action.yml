@@ -5,6 +5,10 @@ inputs:
     description: 'Version of Java to use'
     required: false
     default: 11
+  java-distribution:
+    description: 'The Java distribution to install'
+    required: false
+    default: 'zulu'
 
 
 runs:
@@ -14,6 +18,7 @@ runs:
       uses: actions/setup-java@v3
       with:
         java-version: ${{ inputs.java-version }}
+        java-distribution: ${{ inputs.java-distribution }}
     - name: Install slice2java
       run: |
         sudo apt-get install -y libmcpp-dev
