@@ -18,7 +18,7 @@ runs:
       uses: actions/setup-java@v3
       with:
         java-version: ${{ inputs.java-version }}
-        java-distribution: ${{ inputs.java-distribution }}
+        distribution: ${{ inputs.java-distribution }}
     - name: Install slice2java
       run: |
         sudo apt-get install -y libmcpp-dev
