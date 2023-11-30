@@ -21,7 +21,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Install Ice
-        uses: ome/action-ice@v2.1
+        uses: ome/action-ice@v3
  ```
 
 If you wish to change the Java version, for example use Java 1.8
@@ -36,7 +36,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Install Ice
-        uses: ome/action-ice@v2.1
+        uses: ome/action-ice@v3
         with:
           java-version: 1.8
  ```
