@@ -28,10 +28,10 @@ runs:
         rm Ice-3.6.5-ubuntu2204-x86_64.tar.gz
         echo "/opt/ice-3.6.5/bin" >> $GITHUB_PATH
       shell: bash
-    - name: Install Python 3.8
+    - name: Install Python 3.10
       uses: actions/setup-python@v4
       with:
-        python-version: 3.8
+        python-version: 3.10
     - name: Install Ice Python binding
       shell: bash
       run: |
