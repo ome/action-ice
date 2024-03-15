@@ -3,11 +3,11 @@
 This action is a [composite action](https://docs.github.com/en/actions/creating-actions/creating-a-composite-action)
 that will install on Ubuntu 22.04:
  - Java (default 11)
- - Python 3.10
+ - Python (default 3.10)
  - Ice 3.6.5 
  - Ice Python binding
 
- The Java version can be passed as a parameter
+ The Java and Python versions can be passed as parameters.
 
  To use the action in a workflow:
 
@@ -24,7 +24,7 @@ jobs:
         uses: ome/action-ice@v3
  ```
 
-If you wish to change the Java version, for example use Java 1.8
+If you wish to change the Java version and Python version, for example use Java 1.8 and Python 3.12
 
  ```
 on: [push]
@@ -39,4 +39,5 @@ jobs:
         uses: ome/action-ice@v3
         with:
           java-version: 1.8
+          python-version: 3.12
  ```
