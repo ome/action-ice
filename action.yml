@@ -1,5 +1,5 @@
 name: 'Ice install'
-description: 'Install Ice 3.6 on ubuntu 22.04'
+description: 'Install Ice 3.6 on ubuntu 24.04'
 inputs:
   java-version:
     description: 'Version of Java to use'
@@ -26,10 +26,10 @@ runs:
     - name: Install slice2java
       run: |
         sudo apt-get install -y libmcpp-dev
-        wget -q https://github.com/glencoesoftware/zeroc-ice-ubuntu2204-x86_64/releases/download/20221004/Ice-3.6.5-ubuntu2204-x86_64.tar.gz
-        tar xf Ice-3.6.5-ubuntu2204-x86_64.tar.gz
+        wget -q https://github.com/glencoesoftware/zeroc-ice-ubuntu2404-x86_64/releases/download/20240619/Ice-3.6.5-ubuntu2404-x86_64.tar.gz
+        tar xf Ice-3.6.5-ubuntu2404-x86_64.tar.gz
         mv Ice-3.6.5 /opt/ice-3.6.5
-        rm Ice-3.6.5-ubuntu2204-x86_64.tar.gz
+        rm Ice-3.6.5-ubuntu2404-x86_64.tar.gz
         echo "/opt/ice-3.6.5/bin" >> $GITHUB_PATH
       shell: bash
     - name: Install Python ${{ inputs.python-version }}
