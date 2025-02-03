@@ -1,5 +1,5 @@
 name: 'Ice install'
-description: 'Install Ice 3.6 on ubuntu 22.04'
+description: 'Install Ice 3.6 on ubuntu 24.04'
 inputs:
   java-version:
     description: 'Version of Java to use'
@@ -26,10 +26,10 @@ runs:
     - name: Install slice2java
       run: |
         sudo apt-get install -y libmcpp-dev
-        wget -q https://github.com/glencoesoftware/zeroc-ice-ubuntu2204-x86_64/releases/download/20221004/Ice-3.6.5-ubuntu2204-x86_64.tar.gz
-        tar xf Ice-3.6.5-ubuntu2204-x86_64.tar.gz
+        wget -q https://github.com/glencoesoftware/zeroc-ice-ubuntu2404-x86_64/releases/download/20240619/Ice-3.6.5-ubuntu2404-x86_64.tar.gz
+        tar xf Ice-3.6.5-ubuntu2404-x86_64.tar.gz
         mv Ice-3.6.5 /opt/ice-3.6.5
-        rm Ice-3.6.5-ubuntu2204-x86_64.tar.gz
+        rm Ice-3.6.5-ubuntu2404-x86_64.tar.gz
         echo "/opt/ice-3.6.5/bin" >> $GITHUB_PATH
       shell: bash
     - name: Install Python ${{ inputs.python-version }}
@@ -37,20 +37,10 @@ runs:
       with:
         python-version: ${{ inputs.python-version }}
     - name: Install Ice Python binding
-      if: ${{ inputs.python-version == '3.8' }}
-      shell: bash
-      run: |
-        pip install https://github.com/ome/zeroc-ice-py-github-ci/releases/download/0.2.0/zeroc_ice-3.6.5-cp38-cp38-linux_x86_64.whl
-    - name: Install Ice Python binding
-      if: ${{ inputs.python-version == '3.9' }}
-      shell: bash
-      run: |
-        pip install https://github.com/ome/zeroc-ice-py-github-ci/releases/download/0.2.0/zeroc_ice-3.6.5-cp39-cp39-linux_x86_64.whl
-    - name: Install Ice Python binding
       if: ${{ inputs.python-version == '3.10' }}
       shell: bash
       run: |
-        pip install https://github.com/ome/zeroc-ice-py-github-ci/releases/download/0.2.0/zeroc_ice-3.6.5-cp310-cp310-linux_x86_64.whl
+        pip install https://github.com/glencoesoftware/zeroc-ice-py-linux-x86_64/releases/download/20240202/zeroc_ice-3.6.5-cp310-cp310-manylinux_2_28_x86_64.whl
     - name: Install Ice Python binding
       if: ${{ inputs.python-version == '3.11' }}
       shell: bash
