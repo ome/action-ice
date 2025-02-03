@@ -37,16 +37,6 @@ runs:
       with:
         python-version: ${{ inputs.python-version }}
     - name: Install Ice Python binding
-      if: ${{ inputs.python-version == '3.8' }}
-      shell: bash
-      run: |
-        pip install https://github.com/ome/zeroc-ice-py-github-ci/releases/download/0.2.0/zeroc_ice-3.6.5-cp38-cp38-linux_x86_64.whl
-    - name: Install Ice Python binding
-      if: ${{ inputs.python-version == '3.9' }}
-      shell: bash
-      run: |
-        pip install https://github.com/ome/zeroc-ice-py-github-ci/releases/download/0.2.0/zeroc_ice-3.6.5-cp39-cp39-linux_x86_64.whl
-    - name: Install Ice Python binding
       if: ${{ inputs.python-version == '3.10' }}
       shell: bash
       run: |
