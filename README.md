@@ -36,7 +36,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Install Ice
-        uses: ome/action-ice@v3
+        uses: ome/action-ice@main
         with:
           java-version: 1.8
           python-version: '3.10'
