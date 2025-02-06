@@ -3,7 +3,7 @@
 This action is a [composite action](https://docs.github.com/en/actions/creating-actions/creating-a-composite-action)
 that will install on Ubuntu 24.04:
  - Java (default 11)
- - Python (default 3.10)
+ - Python (default 3.12)
  - Ice 3.6.5 
  - Ice Python binding
 
@@ -24,7 +24,7 @@ jobs:
         uses: ome/action-ice@main
  ```
 
-If you wish to change the Java version and Python version, for example use Java 1.8 and Python 3.12
+If you wish to change the Java version and Python version, for example use Java 1.8 and Python 3.10
 
  ```
 on: [push]
@@ -39,5 +39,5 @@ jobs:
         uses: ome/action-ice@v3
         with:
           java-version: 1.8
-          python-version: '3.12'
+          python-version: '3.10'
  ```
